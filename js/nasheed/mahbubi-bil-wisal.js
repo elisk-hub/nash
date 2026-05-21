@@ -1,0 +1,109 @@
+const mahbubiBilWisal = {
+    id: "mahbubi-bil-wisal",
+    titleAr: "مَحْبُوبِي بِالوِصَالْ",
+    titleEn: "Mahbubi Bil Wisal",
+    shortTitle: "Mahbubi Bil Wisal",
+    info: "A profound spiritual poem describing the journey of the purified soul, filled with divine love, yearning, and higher metaphysical realities.",
+    verses: [
+      {
+        type: "chorus",
+        number: "CHORUS",
+        ar: "مَحْبُوبِي بِالوِصَالْ أَنْعَمْ عَلَيَّ ❁ وَجَادَ بِالنَّوَالْ مِنْهُ إِلَيَّ",
+        tl: "maḥbūbī bi-l-wiṣāl anʿam ʿalayya ❁ wa-jāda bi-n-nawāl minhu ilayya",
+        en: "My beloved has blessed me with union, and generously granted me favor from Him."
+      },
+      {
+        type: "verse",
+        number: "VERSE 1",
+        ar: "لِجِيرَانٍ لَنَا بِالْأَبْطَحْ ❁ بَعَثْتُ مَعَ النُّسَيِمَاتِ التَّحِيَّه",
+        tl: "li-jīrānin lanā bi-l-abṭaḥ ❁ baʿathtu maʿa n-nusayimāti t-taḥiyya",
+        en: "To our neighbours in al-Abtah, I sent a greeting with the breeze."
+      },
+      {
+        type: "verse",
+        number: "VERSE 2",
+        ar: "وَأَوْدَعْتُ النَّسِيمَ حَدِيثَ حُبِّ ❁ قَدِيمٍ كَانَ مِنْ يَومِ القَضِيَّه",
+        tl: "wa-awdaʿtu n-nasīma ḥadītha ḥubb ❁ qadīmin kāna min yawmi l-qaḍiyya",
+        en: "And I bade the breeze farewell with a word of love, as old as the Day of Decree."
+      },
+      {
+        type: "verse",
+        number: "VERSE 3",
+        ar: "دَفِينٍ فِي الْفُؤَادِ بِهِ حَيَاتِي ❁ إِذَا صَالَ الفَنَاءُ عَلَى السَوِيَّه",
+        tl: "dafīnin fī l-fuʾādi bihi ḥayātī ❁ idhā ṣāla l-fanāʾu ʿalā s-sawiyya",
+        en: "Buried in the heart, and whereby I live, when annihilation leaps upon us equally."
+      },
+      {
+        type: "verse",
+        number: "VERSE 4",
+        ar: "تُزَمْزِمٌ الْحَدَاةُ بِذِكْرِ لَيْلَى ❁ وَمَا هِيَ يَا فَتَى بِالْعَامِرِيَّه",
+        tl: "tuzamzimun l-ḥadātu bi-dhikri laylā ❁ wamā hiya yā fatā bi-l-ʿāmiriyya",
+        en: "The cameleers murmur in memory of Layla, so long as she is in al-’Amiriyya, o boy."
+      },
+      {
+        type: "verse",
+        number: "VERSE 5",
+        ar: "فَأَصْبُوا ثُمَّ أَصْبُوا ثُمَّ أَصْبُو ❁ وَلَا كَالصَّبَوَاتِ الْعُذُرِيَّه",
+        tl: "fa-aṣbū thumma aṣbū thumma aṣbū ❁ walā kaṣ-ṣabawāti l-ʿudhuriyya",
+        en: "So I am young, then I strive, then desire; and youthful inclinations are not platonic."
+      },
+      {
+        type: "verse",
+        number: "VERSE 6",
+        ar: "وَلَيْسَتْ لِلْغَوَانِي وَالْأَغَانِي ❁ وَلَا لِلشَّهَوَاتِ الدُّنْيَوِيَّهِ",
+        tl: "walaysat li-l-ghawānī wa-l-aghānī ❁ walā li-sh-shahawāti d-dunyawiyya",
+        en: "And they were not for fair maids or melodies, nor for worldly lusts and license."
+      },
+      {
+        type: "verse",
+        number: "VERSE 7",
+        ar: "وَلَا لِلغَانِيَاتِ بِأَيِّ مَعْنَى ❁ وَلَكِن لِلْأُمُورِ الْعُلُويَّه",
+        tl: "walā li-l-ghāniyāti bi-ayyi maʿnā ❁ walākin li-l-umūri l-ʿulūwiyya",
+        en: "Nor for song-girls of any sort, but for the higher matters!"
+      },
+      {
+        type: "verse",
+        number: "VERSE 8",
+        ar: "حَقَائِقُ بَلْ رَقَائِقُ قَد تَسَامَت ❁ بِأَوْجِ الحَضَرَاتِ الْقُدُسِيَّه",
+        tl: "ḥaqāʾiqu bal raqāʾiqu qad tasāmat ❁ bi-awji l-ḥaḍarāti l-qudsiyya",
+        en: "Truths, nay subtleties of such lofty state, at the pinnacle of the sacred presences."
+      },
+      {
+        type: "verse",
+        number: "VERSE 9",
+        ar: "مَنَاظِرُ لِلنَّوَاظِرِ مِنْ قُلُوبِ ❁ مُطَهَّرَةٍ زَكِيَّاتٍ نَقِيَّه",
+        tl: "manāẓiru li-n-nawāẓiri min qulūb ❁ muṭahharatin zakiyyātin naqiyya",
+        en: "Spectacles to those beholding from hearts, purified, sincere, and cleansed."
+      },
+      {
+        type: "verse",
+        number: "VERSE 10",
+        ar: "وَأَرْوَاحٌ تَطِيرُ إِلَى عُلَاهَا ❁ بِأَجْنِحَةِ الْغَرَامِ الْمَقْعَدِيَّه",
+        tl: "wa-arwāḥun taṭīru ilā ʿulāhā ❁ bi-ajniḥati l-gharāmi l-maqʿadiyya",
+        en: "And souls which fly to their highest reaches, upon fledgling wings of infatuation."
+      },
+      {
+        type: "verse",
+        number: "VERSE 11",
+        ar: "فَتَسْرَعُ فِي رِيَاضٍ مِنْ جِنَانٍ ❁ وَتَأْوِي لِلْقَنَادِيلِ الْمُضِيَّه",
+        tl: "fatasraʿu fī riyāḍin min jinānin ❁ wataʾwī li-l-qanādīli l-muḍiyya",
+        en: "So you speed into the Meadows of the Gardens, and seek refuge among the Everlasting Candles."
+      },
+      {
+        type: "verse",
+        number: "VERSE 12",
+        ar: "فَوَاشَوْقَ الْفُؤَادِ لِخَيْرِ عَيْشٍ ❁ مَعَ الْأَحْبَابِ فِي الْغُرْفِ الْعَلِيَّة",
+        tl: "fawāshawqa l-fuʾādi li-khayri ʿayshin ❁ maʿa l-aḥbābi fī l-ghurfi l-ʿaliyya",
+        en: "O what longing has the heart for the best of life, with the beloveds in the lofty chambers."
+      },
+      {
+        type: "verse",
+        number: "VERSE 13",
+        ar: "عَسَى الرَّبُّ الْكَرِيمُ بِمَحْضِ فَضْلٍ ❁ يُبَلِّغُهَا أَقَاصِي الْأُمُنِيَّه",
+        tl: "ʿasā r-rabbu l-karīmu bimahḍi faḍlin ❁ yuballighuhā aqāṣi l-umniyya",
+        en: "May the Noble Lord by His Pure Favour, cause it to attain the furthest of hopes."
+      }
+    ]
+  };
+  
+  export default mahbubiBilWisal;
