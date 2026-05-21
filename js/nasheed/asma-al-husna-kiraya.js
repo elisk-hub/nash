@@ -15,7 +15,7 @@ const asmaAlHusnaKiraya = {
       {
         type: "verse",
         number: "",
-        ar: "قُدُّوسُ قَدِّسْ بِالصَّفَاءِ رُوحِي<br>وَافْتَحْ عَلَيْنَا أَكْبَرَ الْفُتُوحِ",
+        ar: "قُدُّوسُ قَدِّس *بِالصَّفَاءِ* رُوحِي<br>وَافْتَحْ عَلَيْنَا أَكْبَرَ الْفُتُوحِ",
         tl: "Quddūsu qaddis biṣ-ṣafāʾi rūḥī<br>wa-ftaḥ ʿalaynā akbara l-futūḥi",
         en: "O Holy One, sanctify my soul with purity<br>And open up for us the greatest of openings"
       },
@@ -92,7 +92,7 @@ const asmaAlHusnaKiraya = {
       {
         type: "verse",
         number: "",
-        ar: "مَجِيدُ يَا بَاعِثُ ابْعَثْ هِمَّتِي<br>شَهِيدُ يَا حَقُّ وَحَقِّقْ وِجْهَتِي",
+        ar: "مَجِيدُ يَا بَاعِثُ ابْعَثْ هِمَّتِي<br>شَهِيدُ يَا حَقُw_e_b وَحَقِّقْ وِجْهَتِي",
         tl: "Majīdu yā Bāʿithu bʿath himmatī<br>Shahīdu yā Ḥaqqu wa-ḥaqqiq wijhatī",
         en: "O Most Glorious, O Resurrector, awaken my resolve<br>O Witness, O Truth, and make firm my direction"
       },
@@ -120,7 +120,7 @@ const asmaAlHusnaKiraya = {
       {
         type: "verse",
         number: "",
-        ar: "يَا وَاجِدُ يَا مَاجِدُ هَبْنَا الْأَمَلْ<br>يَا وَاجِدُ يَا أَحَدُ عَزَّ وَجَلَّ",
+        ar: "يَا وَاجِدُ يَا مَاجِدُ هَبْنَا الْأَمَل *❁*<br>يَا وَاجِدُ يَا أَحَدُ عَزَّ وَجَلَّ",
         tl: "Yā Wājidu yā Mājidu habna l-amal<br>yā Wājidu yā Aḥadu ʿazza wa-jall",
         en: "O Perceiver, O Illustrious, grant us hope<br>O Perceiver, O Unique One, Mighty and Majestic is He"
       },
