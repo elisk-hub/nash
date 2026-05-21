@@ -3,9 +3,12 @@ import talaAlBadru from './nasheed/tala-al-badru.js';
 import qadKafani from './nasheed/qad-kafani.js';
 import dhulHijjah from './nasheed/dhul-hijjah.js';
 import assalamuAleyk from './nasheed/assalamu-aleyk.js';
+import salamAlaQabrin from './nasheed/salamun-ala-qabrin.js';
+import qamarun from './nasheed/qamarun.js';
+import innaFilJannati from './nasheed/inna-fil-jannati.js';
 
-// Samla all data i en array
-const nasheedData = [talaAlBadru, qadKafani, assalamuAleyk];
+// Samla all data i en array (dhulHijjah tillagd här så den inte glöms bort)
+const nasheedData = [assalamuAleyk, talaAlBadru, qadKafani, salamAlaQabrin, qamarun, innaFilJannati];
 
 let arabicSize = 30;
 let textSize = 16;
@@ -21,9 +24,15 @@ function initApp() {
     card.className = 'card';
     card.onclick = () => openReader(index);
 
+    // Automatiskt nummer baserat på array-ordningen (index + 1)
+    const displayNum = index + 1;
+
     card.innerHTML = `
-      <div class="card-ar">${nasheed.titleAr}</div>
-      <div class="card-en">${nasheed.titleEn}</div>
+      <div class="card-num">${displayNum}</div>
+      <div class="card-titles">
+        <div class="card-ar">${nasheed.titleAr}</div>
+        <div class="card-en">${nasheed.titleEn}</div>
+      </div>
     `;
     listContainer.appendChild(card);
   });
@@ -45,7 +54,7 @@ function openReader(index) {
     if (item.type === 'chorus') {
       contentHtml += `
         <div class="chorus">
-          <div class="chorus-label">${item.label}</div>
+          <div class="chorus-label">${item.label || 'CHORUS'}</div>
           <div class="ar">${item.ar}</div>
           ${item.tl ? `<div class="tl">${item.tl}</div>` : ''}
           ${item.en ? `<div class="en">${item.en}</div>` : ''}
@@ -88,7 +97,7 @@ function applySizes() {
   document.querySelectorAll('.en').forEach(el => el.style.fontSize = textSize + 'px');
 }
 
-// Gör funktionerna tillgängliga för HTML (eftersom ES-moduler har egen "scope")
+// Gör funktionerna tillgängliga för HTML
 window.goBack = goBack;
 window.toggleNight = toggleNight;
 window.changeSize = changeSize;

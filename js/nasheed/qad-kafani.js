@@ -1,6 +1,6 @@
 const qadKafani = {
     id: "qad-kafani",
-    titleAr: "قَدْ كَفَانِي عِلْمُ رَبِّي",
+    titleAr: "قَدْ كَفَانِي",
     titleEn: "Qad Kafani",
     shortTitle: "Qad Kafani",
     info: "By Imam Abdullah al-Haddad",
