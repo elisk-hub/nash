@@ -2,9 +2,10 @@
 import talaAlBadru from './nasheed/tala-al-badru.js';
 import qadKafani from './nasheed/qad-kafani.js';
 import dhulHijjah from './nasheed/dhul-hijjah.js';
+import assalamuAleyk from './nasheed/assalamu-aleyk.js';
 
 // Samla all data i en array
-const nasheedData = [talaAlBadru, qadKafani, dhulHijjah];
+const nasheedData = [talaAlBadru, qadKafani, assalamuAleyk];
 
 let arabicSize = 30;
 let textSize = 16;
