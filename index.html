@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8" />
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+/>
+
+<title>Nasheed</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Amiri:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --green-dark:#1a3a2a;
+  --green:#2d5a3d;
+
+  --gold:#c9a84c;
+  --gold-light:#e8c870;
+
+  --cream:#f7f2e8;
+
+  --text:#4d4333;
+}
+
+html,
+body{
+  height:100%;
+  overflow:hidden;
+
+  font-family:'Amiri',serif;
+
+  background:var(--green-dark);
+}
+
+/* BACKGROUND */
+
+body::before{
+  content:'';
+
+  position:fixed;
+  inset:0;
+
+  background-image:
+    repeating-linear-gradient(
+      60deg,
+      transparent,
+      transparent 34px,
+      rgba(201,168,76,.04) 34px,
+      rgba(201,168,76,.04) 35px
+    );
+
+  pointer-events:none;
+}
+
+/* HOME */
+
+#home{
+  position:fixed;
+  inset:0;
+
+  display:flex;
+  flex-direction:column;
+
+  color:white;
+}
+
+.header{
+  text-align:center;
+
+  padding:34px 20px 18px;
+}
+
+.title{
+  font-size:38px;
+
+  font-family:'Scheherazade New',serif;
+
+  color:var(--gold-light);
+}
+
+.subtitle{
+  margin-top:4px;
+
+  font-size:12px;
+
+  opacity:.55;
+
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.list{
+  flex:1;
+
+  overflow-y:auto;
+
+  padding:20px;
+}
+
+.card{
+  background:rgba(255,255,255,.06);
+
+  border:1px solid rgba(201,168,76,.25);
+
+  border-radius:16px;
+
+  padding:18px;
+
+  margin-bottom:14px;
+
+  cursor:pointer;
+
+  transition:.15s;
+}
+
+.card:active{
+  transform:scale(.98);
+}
+
+.card-ar{
+  font-size:28px;
+
+  text-align:center;
+
+  direction:rtl;
+
+  color:var(--gold-light);
+
+  font-family:'Scheherazade New',serif;
+}
+
+.card-en{
+  margin-top:8px;
+
+  text-align:center;
+
+  opacity:.7;
+}
+
+/* READER */
+
+#reader{
+  position:fixed;
+  inset:0;
+
+  background:var(--cream);
+
+  display:flex;
+  flex-direction:column;
+
+  transform:translateY(20px);
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transition:.25s;
+}
+
+#reader.show{
+  transform:none;
+
+  opacity:1;
+
+  pointer-events:auto;
+}
+
+.topbar{
+  background:var(--green-dark);
+
+  color:white;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:12px 14px;
+
+  border-bottom:2px solid var(--gold);
+}
+
+.back{
+  background:none;
+  border:none;
+
+  color:var(--gold-light);
+
+  font-size:17px;
+
+  cursor:pointer;
+}
+
+.reader-title{
+  color:var(--gold-light);
+
+  font-size:18px;
+
+  font-family:'Scheherazade New',serif;
+}
+
+.controls{
+  display:flex;
+  gap:6px;
+}
+
+.ctrl{
+  width:34px;
+  height:34px;
+
+  border:none;
+
+  border-radius:8px;
+
+  background:rgba(255,255,255,.08);
+
+  color:var(--gold-light);
+
+  cursor:pointer;
+}
+
+/* CONTENT */
+
+.content{
+  flex:1;
+
+  overflow-y:auto;
+
+  padding:28px 22px 80px;
+}
+
+.heading{
+  text-align:center;
+
+  margin-bottom:34px;
+}
+
+.heading-ar{
+  font-size:38px;
+
+  direction:rtl;
+
+  color:var(--green-dark);
+
+  font-family:'Scheherazade New',serif;
+}
+
+.heading-en{
+  margin-top:4px;
+
+  font-size:12px;
+
+  letter-spacing:2px;
+  text-transform:uppercase;
+
+  color:#8a7d63;
+}
+
+.info{
+  margin-top:10px;
+
+  font-size:13px;
+
+  color:#988a70;
+
+  font-style:italic;
+}
+
+/* CHORUS */
+
+.chorus{
+  background:rgba(201,168,76,.08);
+
+  border:1px solid rgba(201,168,76,.2);
+
+  border-radius:16px;
+
+  padding:18px;
+
+  margin-bottom:34px;
+
+  text-align:center;
+}
+
+.chorus-label{
+  font-size:11px;
+
+  letter-spacing:2px;
+
+  color:var(--gold);
+
+  margin-bottom:12px;
+}
+
+/* VERSES */
+
+.verse{
+  margin-bottom:38px;
+
+  text-align:center;
+}
+
+.verse-number{
+  margin-bottom:14px;
+
+  font-size:11px;
+
+  letter-spacing:2px;
+
+  color:var(--gold);
+}
+
+/* Arabic */
+
+.ar{
+  font-family:'Scheherazade New',serif;
+
+  direction:rtl;
+
+  text-align:center;
+
+  color:var(--green-dark);
+
+  line-height:2.1;
+
+  margin-bottom:14px;
+
+  font-size:30px;
+}
+
+/* Transliteration */
+
+.tl{
+  background:rgba(74,138,90,.08);
+
+  border-radius:12px;
+
+  padding:12px 14px;
+
+  margin-bottom:12px;
+
+  color:#6e7866;
+
+  font-style:italic;
+
+  line-height:1.9;
+
+  font-size:16px;
+}
+
+/* English */
+
+.en{
+  color:var(--text);
+
+  line-height:1.9;
+
+  max-width:700px;
+
+  margin:0 auto;
+
+  font-size:16px;
+}
+
+/* Night Mode */
+
+#reader.night{
+  background:#101912;
+}
+
+#reader.night .content{
+  background:#101912;
+}
+
+#reader.night .heading-ar,
+#reader.night .ar{
+  color:#d3c18a;
+}
+
+#reader.night .heading-en,
+#reader.night .info{
+  color:#8e7f60;
+}
+
+#reader.night .tl{
+  background:rgba(201,168,76,.06);
+
+  color:#95a084;
+}
+
+#reader.night .en{
+  color:#a99a7d;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HOME -->
+
+<div id="home">
+
+  <div class="header">
+
+    <div class="title">
+      Nasheed
+    </div>
+
+    <div class="subtitle">
+      Välj en nasheed
+    </div>
+
+  </div>
+
+  <div class="list">
+
+    <!-- TALA -->
+
+    <div class="card" onclick="openTala()">
+
+      <div class="card-ar">
+        طَلَعَ الْبَدْرُ عَلَيْنَا
+      </div>
+
+      <div class="card-en">
+        Tala al-Badru Alayna
+      </div>
+
+    </div>
+
+    <!-- QAD KAFANI -->
+
+    <div class="card" onclick="openQad()">
+
+      <div class="card-ar">
+        قَدْ كَفَانِي عِلْمُ رَبِّي
+      </div>
+
+      <div class="card-en">
+        Qad Kafani
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- READER -->
+
+<div id="reader">
+
+  <div class="topbar">
+
+    <button class="back" onclick="goBack()">
+      ← Tillbaka
+    </button>
+
+    <div class="reader-title" id="readerTitle">
+      Nasheed
+    </div>
+
+    <div class="controls">
+
+      <button class="ctrl" onclick="toggleNight()">
+        ☾
+      </button>
+
+      <button class="ctrl" onclick="changeSize(-2)">
+        A−
+      </button>
+
+      <button class="ctrl" onclick="changeSize(2)">
+        A+
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="content" id="content"></div>
+
+</div>
+
+<script>
+
+let arabicSize = 30;
+let textSize = 16;
+
+/* OPEN TALA */
+
+function openTala(){
+
+  document.getElementById('readerTitle').innerHTML =
+    'Tala al-Badru';
+
+  document.getElementById('content').innerHTML = `
+
+    <div class="heading">
+
+      <div class="heading-ar">
+        طَلَعَ الْبَدْرُ عَلَيْنَا
+      </div>
+
+      <div class="heading-en">
+        TALA AL-BADRU ALAYNA
+      </div>
+
+      <div class="info">
+        Sung to welcome the Prophet ﷺ in Madinah
+      </div>
+
+    </div>
+
+    <div class="verse">
+
+      <div class="verse-number">
+        VERSE 1
+      </div>
+
+      <div class="ar">
+        طَلَعَ الْبَدْرُ عَلَيْنَا مِنْ ثَنِيَّاتِ الْوَدَاعِ<br>
+        وَجَبَ الشُّكْرُ عَلَيْنَا مَا دَعَا لِلَّهِ دَاعِ
+      </div>
+
+      <div class="tl">
+        Ṭalaʿa l-badru ʿalaynā min thanīyāti l-wadāʿ<br>
+        Wajaba sh-shukru ʿalaynā mā daʿā lillāhi dāʿ
+      </div>
+
+      <div class="en">
+        The full moon has risen upon us from the valley of Wadaʿ<br>
+        Gratitude is incumbent upon us when a caller calls to Allah
+      </div>
+
+    </div>
+
+    <div class="verse">
+
+      <div class="verse-number">
+        VERSE 2
+      </div>
+
+      <div class="ar">
+        أَيُّهَا الْمَبْعُوثُ فِينَا جِئْتَ بِالْأَمْرِ الْمُطَاعِ<br>
+        جِئْتَ شَرَّفْتَ الْمَدِينَةَ مَرْحَبًا يَا خَيْرَ دَاعِ
+      </div>
+
+      <div class="tl">
+        Ayyuha l-mabʿūthu fīnā jiʾta bi l-amri l-muṭāʿ<br>
+        Jiʾta sharrafta l-Madīnah marḥaban yā khayra dāʿ
+      </div>
+
+      <div class="en">
+        O you who has been sent amongst us, you came with the command to be obeyed<br>
+        You came and honoured Madinah, welcome O noblest caller
+      </div>
+
+    </div>
+
+  `;
+
+  applySizes();
+
+  document.getElementById('reader').classList.add('show');
+}
+
+/* OPEN QAD */
+
+function openQad(){
+
+document.getElementById('readerTitle').innerHTML =
+  'Qad Kafani';
+
+document.getElementById('content').innerHTML = `
+
+  <div class="heading">
+
+    <div class="heading-ar">
+      قَدْ كَفَانِي
+    </div>
+
+    <div class="heading-en">
+      QAD KAFANI
+    </div>
+
+    <div class="info">
+      By Imam Abdullah al-Haddad
+    </div>
+
+  </div>
+
+  <!-- MODERN CHORUS -->
+  <div class="chorus">
+
+    <div class="chorus-label">
+      ◆ CHORUS ◆
+    </div>
+
+    <div class="ar">
+      اَللهُ اَللهُ اَلله<br>
+      اَللهُ اَللهُ اَلله<br>
+      اَللهُ اَللهُ اَلله<br>
+      يَا رَبِّ يَا خَيْرَ مُعْطِي
+    </div>
+
+    <div class="tl">
+      Allahu Allahu Allah<br>
+      Ya Rabbi ya khayra muʿṭī
+    </div>
+
+    <div class="en">
+      O Lord, O Best of Givers
+    </div>
+
+  </div>
+
+  <!-- VERSE 1 -->
+  <div class="verse">
+
+    <div class="verse-number">VERSE 1</div>
+
+    <div class="ar">
+      قَدْ كَفَانِي عِلْمُ رَبِّي مِنْ سُؤَالِي وَاخْتِيَارِي<br>
+      فَدُعَائِي وَابْتِهَالِي شَاهِدٌ لِي بِافْتِقَارِي
+    </div>
+
+    <div class="tl">
+      Qad kafānī ʿilmu Rabbī min suʾālī wakhtiyārī<br>
+      Faduʿāʾī wabtihālī shāhidun lī biftiqārī
+    </div>
+
+    <div class="en">
+      My Lord’s knowledge has sufficed me from asking and choosing<br>
+      My prayer and supplication testify to my neediness
+    </div>
+
+  </div>
+
+  <!-- VERSE 2 -->
+  <div class="verse">
+
+    <div class="verse-number">VERSE 2</div>
+
+    <div class="ar">
+      فَلِهَذَا السِّرِّ أَدْعُو فِي يَسَارِي وَعِسَارِي<br>
+      أَنَا عَبْدٌ صَارَ فَخْرِي ضِمْنَ فَقْرِي وَاضْطِرَارِي
+    </div>
+
+    <div class="tl">
+      Falihadhā s-sirri adʿū fī yasārī wa ʿisārī<br>
+      Anā ʿabdun ṣāra fakhrī ḍimna faqrī waḍṭirārī
+    </div>
+
+    <div class="en">
+      For this secret I call upon Him in ease and hardship<br>
+      I am a servant whose pride lies in his poverty and need
+    </div>
+
+  </div>
+
+  <!-- VERSE 3 -->
+  <div class="verse">
+
+    <div class="verse-number">VERSE 3</div>
+
+    <div class="ar">
+      يَا إِلَهِي وَمَلِيكِي أَنْتَ تَعْلَمْ كَيْفَ حَالِي<br>
+      وَبِمَا قَدْ حَلَّ قَلْبِي مِنْ هُمُومٍ وَاشْتِغَالِي
+    </div>
+
+    <div class="tl">
+      Yā ilāhī wa malīkī anta taʿlam kayfa ḥālī<br>
+      Wa bimā qad ḥalla qalbī min humūmin washtighālī
+    </div>
+
+    <div class="en">
+      My God and my King, You know my state<br>
+      and what has filled my heart with worries and concerns
+    </div>
+
+  </div>
+
+  <!-- VERSE 4 -->
+  <div class="verse">
+
+    <div class="verse-number">VERSE 4</div>
+
+    <div class="ar">
+      فَتَدَارَكْنِي بِلُطْفٍ مِنْكَ يَا مَوْلَى الْمَوَالِي<br>
+      يَا كَرِيمَ الْوَجْهِ غِثْنِي قَبْلَ أَنْ يَفْنَى اصْطِبَارِي
+    </div>
+
+    <div class="tl">
+      Fatadāraknī biluṭfin minka yā Mawlā l-mawālī<br>
+      Yā karīma l-wajhi ghithnī qabla an yafnā ṣṭibārī
+    </div>
+
+    <div class="en">
+      So take me into Your gentleness, O Master of all masters<br>
+      O Noble One, rescue me before my patience is gone
+    </div>
+
+  </div>
+
+  <!-- VERSE 5 -->
+  <div class="verse">
+
+    <div class="verse-number">VERSE 5</div>
+
+    <div class="ar">
+      يَا سَرِيعَ الْغَوْثِ غَوْثًا مِنْكَ يُدْرِكْنَا سَرِيعًا<br>
+      يَهْزِمُ الْعُسْرَ وَيَأْتِي بِالَّذِي أَرْجُو جَمِيعًا
+    </div>
+
+    <div class="tl">
+      Yā sarīʿa l-ghawthi ghawthan minka yudriknā sarīʿā<br>
+      Yahzimu l-ʿusra wa yaʾtī billadhī arjū jamīʿā
+    </div>
+
+    <div class="en">
+      O Swift Helper, grant us swift relief<br>
+      that overcomes hardship and brings all I hope for
+    </div>
+
+  </div>
+
+  <!-- VERSE 6 -->
+  <div class="verse">
+
+    <div class="verse-number">VERSE 6</div>
+
+    <div class="ar">
+      يَا قَرِيبًا يَا مُجِيبًا يَا عَلِيمًا يَا سَمِيعًا<br>
+      قَدْ تَحَقَّقْتُ بِعَجْزِي وَخُضُوعِي وَانْكِسَارِي
+    </div>
+
+    <div class="tl">
+      Yā qarīban yā mujīban yā ʿalīman yā samīʿā<br>
+      Qad taḥaqqaqtu biʿajzī wa khuḍūʿī wankisārī
+    </div>
+
+    <div class="en">
+      O Near, O Answerer, O All-Knowing, O All-Hearing<br>
+      I have realised my weakness and brokenness
+    </div>
+
+  </div>
+
+  <!-- VERSE 7 -->
+  <div class="verse">
+
+    <div class="verse-number">VERSE 7</div>
+
+    <div class="ar">
+      لَمْ أَزَلْ بِالْبَابِ وَاقِفٌ فَارْحَمَنْ رَبِّي وُقُوفِي<br>
+      وَبِوَادِي الْفَضْلِ عَاكِفٌ فَأَدِمْ رَبِّي عُكُوفِي
+    </div>
+
+    <div class="tl">
+      Lam azal bil-bābi wāqifan farḥam Rabbī wuqūfī<br>
+      Wa biwādī l-faḍli ʿākifan fa-adim Rabbī ʿukūfī
+    </div>
+
+    <div class="en">
+      I remain standing at Your door, have mercy on my standing<br>
+      and keep me devoted in the valley of grace
+    </div>
+
+  </div>
+
+  <!-- VERSE 8 -->
+  <div class="verse">
+
+    <div class="verse-number">VERSE 8</div>
+
+    <div class="ar">
+      وَلِحُسْنِ الظَّنِّ أُلَازِمُ فَهْوَ خِلِّي وَحَلِيفِي<br>
+      وَأَنِيسِي وَجَلِيسِي طُولَ لَيْلِي وَنَهَارِي
+    </div>
+
+    <div class="tl">
+      Wa liḥusni ẓ-ẓanni ulāzimu fahuwa khillī wa ḥalīfī<br>
+      Wa anīsī wa jalīsī ṭūla laylī wa nahārī
+    </div>
+
+    <div class="en">
+      I cling to good opinion of my Lord<br>
+      for He is my companion day and night
+    </div>
+
+  </div>
+
+  <!-- VERSE 9 -->
+  <div class="verse">
+
+    <div class="verse-number">VERSE 9</div>
+
+    <div class="ar">
+      حَاجَةً فِي النَّفْسِ يَا رَبْ فَاقْضِهَا يَا خَيْرَ قَاضِي<br>
+      وَأَرِحْ سِرِّي وَقَلْبِي مِنْ لَظَاهَا وَالشُّوَاظِ
+    </div>
+
+    <div class="tl">
+      Ḥājatan fī n-nafsi yā Rab faqḍihā yā khayra qāḍī<br>
+      Wa arih sirrī wa qalbī min laẓāhā wash-shuwāẓ
+    </div>
+
+    <div class="en">
+      A need within my soul, O Lord, fulfill it<br>
+      and ease my heart from its burning
+    </div>
+
+  </div>
+
+  <!-- VERSE 10 -->
+  <div class="verse">
+
+    <div class="verse-number">VERSE 10</div>
+
+    <div class="ar">
+      فِي سُرُورٍ وَحُبُورٍ وَإِذَا مَا كُنْتَ رَاضِي<br>
+      فَالْهَنَا وَالْبَسْطُ حَالِي وَشِعَارِي وَدِثَارِي
+    </div>
+
+    <div class="tl">
+      Fī surūrin wa ḥubūrin wa idhā mā kunta rāḍī<br>
+      Fal-hanā wal-basṭu ḥālī wa shiʿārī wa dithārī
+    </div>
+
+    <div class="en">
+      If You are pleased with me, then joy and expansion are my state<br>
+      my garment and my covering
+    </div>
+
+  </div>
+
+`;
+
+applySizes();
+
+document.getElementById('reader').classList.add('show');
+}
+
+/* BACK */
+
+function goBack(){
+  document.getElementById('reader').classList.remove('show');
+}
+
+/* NIGHT MODE */
+
+function toggleNight(){
+  document.getElementById('reader').classList.toggle('night');
+}
+
+/* FONT SIZE */
+
+function changeSize(change){
+
+  arabicSize += change;
+  textSize += change * 0.5;
+
+  applySizes();
+}
+
+function applySizes(){
+
+  document.querySelectorAll('.ar').forEach(el=>{
+    el.style.fontSize = arabicSize + 'px';
+  });
+
+  document.querySelectorAll('.tl').forEach(el=>{
+    el.style.fontSize = textSize + 'px';
+  });
+
+  document.querySelectorAll('.en').forEach(el=>{
+    el.style.fontSize = textSize + 'px';
+  });
+}
+
+</script>
+
+</body>
+</html>
