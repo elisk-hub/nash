@@ -6,9 +6,10 @@ import assalamuAleyk from './nasheed/assalamu-aleyk.js';
 import salamAlaQabrin from './nasheed/salamun-ala-qabrin.js';
 import qamarun from './nasheed/qamarun.js';
 import innaFilJannati from './nasheed/inna-fil-jannati.js';
+import asmaAlHusnaKiraya from './nasheed/asma-al-husna-kiraya.js';
 
 // Samla all data i en array (dhulHijjah tillagd här så den inte glöms bort)
-const nasheedData = [assalamuAleyk, talaAlBadru, qadKafani, salamAlaQabrin, qamarun, innaFilJannati];
+const nasheedData = [assalamuAleyk, talaAlBadru, qadKafani, salamAlaQabrin, qamarun, innaFilJannati, asmaAlHusnaKiraya];
 
 let arabicSize = 30;
 let textSize = 16;
