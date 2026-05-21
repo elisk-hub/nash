@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1a3a2a">
+<title>Nasheed & Mawlid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gd:#1a3a2a;--gm:#2d5a3d;--gl:#4a8a5a;
+  --gold:#c9a84c;--gold2:#e8c870;
+  --cream:#f7f2e8;--tx:#1c1a10;--r:14px;
+}
+html,body{height:100%;font-family:'Amiri',serif;background:var(--gd);color:var(--cream);overflow:hidden}
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:
+    repeating-linear-gradient(60deg,transparent,transparent 34px,rgba(201,168,76,.045) 34px,rgba(201,168,76,.045) 35px),
+    repeating-linear-gradient(-60deg,transparent,transparent 34px,rgba(201,168,76,.045) 34px,rgba(201,168,76,.045) 35px),
+    repeating-linear-gradient(0deg,transparent,transparent 34px,rgba(201,168,76,.03) 34px,rgba(201,168,76,.03) 35px);
+  pointer-events:none;z-index:0;
+}
+#home,#read{position:fixed;inset:0;display:flex;flex-direction:column;z-index:1;transition:opacity .3s ease,transform .3s ease}
+.gone{opacity:0!important;pointer-events:none!important;transform:translateY(14px)!important}
+
+/* HOME */
+.hdr{text-align:center;padding:30px 20px 14px;flex-shrink:0}
+.orn{display:block;font-size:18px;color:var(--gold);letter-spacing:8px;margin-bottom:5px}
+.htitle{font-family:'Scheherazade New',serif;font-size:32px;font-weight:700;color:var(--gold2);line-height:1.1}
+.hsub{font-size:11px;color:rgba(247,242,232,.4);letter-spacing:3px;text-transform:uppercase;margin-top:3px}
+.divl{display:flex;align-items:center;gap:10px;padding:0 22px;flex-shrink:0;margin:4px 0}
+.divl::before,.divl::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
+.divl span{color:var(--gold);font-size:10px}
+.hbody{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:12px 18px 32px}
+.slabel{font-size:11px;color:rgba(247,242,232,.4);letter-spacing:3px;text-transform:uppercase;text-align:center;margin:4px 0 12px}
+.ncard{
+  background:rgba(247,242,232,.07);
+  border:1px solid rgba(201,168,76,.35);
+  border-radius:var(--r);padding:16px;margin-bottom:12px;
+  cursor:pointer;-webkit-tap-highlight-color:transparent;
+  transition:background .2s,transform .1s;
+}
+.ncard:active{background:rgba(247,242,232,.14);transform:scale(0.98)}
+.car{font-family:'Scheherazade New',serif;font-size:23px;color:var(--gold2);direction:rtl;text-align:right;line-height:1.6;margin-bottom:5px}
+.cen{font-size:13px;color:rgba(247,242,232,.55);font-style:italic}
+.ctag{display:inline-block;font-size:10px;color:var(--gold);border:1px solid rgba(201,168,76,.4);border-radius:6px;padding:1px 7px;margin-top:5px;letter-spacing:1px}
+
+/* READ */
+#read{background:var(--cream);color:var(--tx)}
+#read::before{display:none}
+.rhdr{display:flex;align-items:center;justify-content:space-between;padding:13px 14px 11px;background:var(--gd);flex-shrink:0;border-bottom:2px solid var(--gold)}
+.bk{background:none;border:none;color:var(--gold);font-family:'Amiri',serif;font-size:17px;cursor:pointer;padding:6px 10px;border-radius:8px;-webkit-tap-highlight-color:transparent;transition:background .15s}
+.bk:active{background:rgba(255,255,255,.1)}
+.rtitle{font-family:'Scheherazade New',serif;font-size:17px;color:var(--gold2);font-weight:700;text-align:center;flex:1;padding:0 6px}
+.fctrl{display:flex;align-items:center;gap:3px}
+.fb,.nb{background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);color:var(--gold);width:34px;height:34px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .15s;display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif}
+.fb:active,.nb:active{background:rgba(201,168,76,.35)}
+.rcont{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+#vbox{padding:22px 20px 70px}
+
+/* Heading */
+.nhead{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid rgba(201,168,76,.25)}
+.nhead-ar{font-family:'Scheherazade New',serif;font-size:30px;font-weight:700;color:var(--gd);direction:rtl;display:block;margin-bottom:3px}
+.nhead-en{font-size:12px;color:#8a7e62;letter-spacing:2px;text-transform:uppercase}
+.ninfo{font-size:12px;color:#a09080;font-style:italic;margin-top:6px}
+
+/* Chorus */
+.chorus{background:rgba(45,90,61,.07);border:1px solid rgba(45,90,61,.18);border-radius:10px;padding:14px 16px;margin-bottom:26px}
+.clabel{font-size:10px;color:var(--gl);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;text-align:center}
+.c-ar{font-family:'Scheherazade New',serif;font-size:22px;color:var(--gm);direction:rtl;text-align:right;line-height:1.9;margin-bottom:8px}
+.c-tl{font-family:'Amiri',serif;font-size:13px;color:#6a7a5a;font-style:italic;line-height:1.7;margin-bottom:6px}
+.c-en{font-family:'Amiri',serif;font-size:14px;color:#5a5040;line-height:1.7}
+
+/* Verse block */
+.vb{margin-bottom:30px;padding-bottom:26px;border-bottom:1px solid rgba(201,168,76,.2)}
+.vb:last-child{border-bottom:none;margin-bottom:0}
+.vnum{font-size:10px;color:var(--gold);letter-spacing:2px;margin-bottom:10px}
+
+/* Arabic */
+.v-ar{font-family:'Scheherazade New',serif;line-height:2;color:var(--gd);direction:rtl;text-align:right;margin-bottom:12px}
+
+/* Transliteration */
+.v-tl{font-family:'Amiri',serif;font-size:14px;line-height:1.8;color:#7a8070;font-style:italic;margin-bottom:10px;padding:8px 12px;background:rgba(74,138,90,.07);border-radius:8px}
+
+/* English */
+.v-en{font-family:'Amiri',serif;font-size:15px;line-height:1.75;color:#5a5040;padding-left:12px;border-left:2px solid rgba(201,168,76,.4)}
+
+/* Progress bar */
+.pbar{position:fixed;bottom:0;left:0;width:100%;height:3px;background:rgba(0,0,0,.07);z-index:10}
+.pfill{height:100%;background:var(--gl);width:0%;transition:width .1s}
+
+/* Night mode */
+#read.night{background:#0d1a12}
+#read.night .rcont{background:#0d1a12}
+#read.night .nhead-ar,#read.night .v-ar{color:#c5b88a}
+#read.night .nhead-en,#read.night .ninfo{color:#7a6f55}
+#read.night .v-tl{color:#8a9478;background:rgba(201,168,76,.06)}
+#read.night .v-en{color:#9a8e72;border-left-color:rgba(201,168,76,.25)}
+#read.night .chorus{background:rgba(201,168,76,.06);border-color:rgba(201,168,76,.12)}
+#read.night .c-ar{color:#c5b88a}
+#read.night .c-tl{color:#7a8860}
+#read.night .c-en{color:#9a8e72}
+#read.night .nhead{border-bottom-color:rgba(201,168,76,.15)}
+#read.night .vb{border-bottom-color:rgba(201,168,76,.1)}
+</style>
+</head>
+<body>
+
+<!-- HOME -->
+<div id="home">
+  <header class="hdr">
+    <span class="orn">✦ ✦ ✦</span>
+    <h1 class="htitle">Nasheed</h1>
+    <p class="hsub">Välj en nasheed för att läsa</p>
+  </header>
+  <div class="divl"><span>◆</span></div>
+  <div class="hbody">
+    <p class="slabel">Välj nasheed</p>
+
+    <div class="ncard" onclick="open_nasheed('tala')">
+      <div class="car">طَلَعَ الْبَدْرُ عَلَيْنَا</div>
+      <div class="cen">Tala al-Badru Alayna — The Full Moon Rose Over Us</div>
+      <div><span class="ctag">2 verses</span></div>
+    </div>
+
+    <div class="ncard" onclick="open_nasheed('qad')">
+      <div class="car">قَدْ كَفَانِي عِلْمُ رَبِّي</div>
+      <div class="cen">Qad Kafani — My Lord's Knowledge Has Sufficed Me</div>
+      <div><span class="ctag">10 verses · Imam al-Haddad</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- READ -->
+<div id="read" class="gone">
+  <header class="rhdr">
+    <button class="bk" onclick="go_home()">← Back</button>
+    <span class="rtitle" id="rtitle"></span>
+    <div class="fctrl">
+      <button class="nb" onclick="toggle_night()">☽</button>
+      <button class="fb" onclick="chsz(-2)">A−</button>
+      <button class="fb" onclick="chsz(2)">A+</button>
+    </div>
+  </header>
+  <div class="rcont" id="rcont" onscroll="upd()">
+    <div id="vbox"></div>
+  </div>
+  <div class="pbar"><div class="pfill" id="pfill"></div></div>
+</div>
+
+<script>
+const N = {
+  tala: {
+    titleAr:'طَلَعَ الْبَدْرُ عَلَيْنَا',
+    titleEn:'Tala al-Badru Alayna',
+    info:'Sung to welcome the Prophet ﷺ upon his arrival in Madinah, 622 CE',
+    chorus:null,
+    verses:[
+      {
+        ar:'طَلَعَ الْبَدْرُ عَلَيْنَا\nمِنْ ثَنِيَّاتِ الْوَدَاعِ\nوَجَبَ الشُّكْرُ عَلَيْنَا\nمَا دَعَا لِلَّهِ دَاعِ',
+        tl:'Ṭalaʿa l-badru ʿalaynā\nmin thanīyāti l-wadāʿ\nWajaba sh-shukru ʿalaynā\nmā daʿā lillāhi dāʿ',
+        en:'The full moon has risen upon us\nfrom the valley of Wada\'\nGratitude is incumbent upon us\nwhen a caller calls to Allah'
+      },
+      {
+        ar:'أَيُّهَا الْمَبْعُوثُ فِينَا\nجِئْتَ بِالْأَمْرِ الْمُطَاعِ\nجِئْتَ شَرَّفْتَ الْمَدِينَةَ\nمَرْحَبًا يَا خَيْرَ دَاعِ',
+        tl:'Ayyuha l-mabʿūthu fīnā\njiʾta bi l-amri l-muṭāʿ\nJiʾta sharrafta l-Madīnah\nmarḥaban yā khayra dāʿ',
+        en:'O you who has been sent amongst us\nyou came with the command to be obeyed\nYou came and honoured Madinah\nwelcome, O noblest of callers'
+      }
+    ]
+  },
+  qad: {
+    titleAr:'قَدْ كَفَانِي',
+    titleEn:'Qad Kafani',
+    info:'By Imam Abdullah al-Haddad (17th century)',
+    chorus:{
+      ar:'كُلَّمَا نَادَيْتُ يَاهُو\nقَالَ يَاعَبْدِي أَنَا اللَّهُ',
+      tl:'Kullamā nādaytu yā Hū\nqāla yā ʿabdī ana-llāh',
+      en:'Every time I called out to Him\nHe replied: "O My servant! I am Allah!"'
+    },
+    verses:[
+      {
+        ar:'قَدْ كَفَانِي عِلْمُ رَبِّي\nمِنْ سُؤَالِي وَاخْتِيَارِي\nفَدُعَائِي وَابْتِهَالِي\nشَاهِدٌ لِي بِافْتِقَارِي',
+        tl:'Qad kafānī ʿilmu Rabbī\nmin suʾālī wakhtiyārī\nFaduʿāʾī wabtihālī\nshāhidun lī biftiqārī',
+        en:'My Lord\'s knowledge has sufficed me\nfrom requesting and choosing\nMy prayer and my supplication\nare a witness to my impoverishment'
+      },
+      {
+        ar:'فَلِهَذَا السِّرِّ أَدْعُو\nفِي يَسَارِي وَعِسَارِي\nأَنَا عَبْدٌ صَارَ فَخْرِي\nضِمْنَ فَقْرِي وَاضْطِرَارِي',
+        tl:'Falihadhā s-sirri adʿū\nfī yasārī wa ʿisārī\nAnā ʿabdun ṣāra fakhrī\nḍimna faqrī waḍṭirārī',
+        en:'By this secret I supplicate\nin times of ease and hardship\nI am a slave whose pride has become\nhis poverty and neediness in Allah'
+      },
+      {
+        ar:'يَا إِلَهِي وَمَلِيكِي\nأَنْتَ تَعْلَمْ كَيْفَ حَالِي\nوَبِمَا قَدْ حَلَّ قَلْبِي\nمِنْ هُمُومٍ وَاشْتِغَالِي',
+        tl:'Yā ilāhī wa malīkī\nanta taʿlam kayfa ḥālī\nWa bimā qad ḥalla qalbī\nmin humūmin washtighālī',
+        en:'O my Lord, my King\nYou know of my state\nand what has settled in my heart\nfrom worries and preoccupations'
+      },
+      {
+        ar:'فَتَدَارَكْنِي بِلُطْفٍ\nمِنْكَ يَا مَوْلَى الْمَوَالِي\nيَا كَرِيمَ الْوَجْهِ غِثْنِي\nقَبْلَ أَنْ يَفْنَى اصْطِبَارِي',
+        tl:'Fatadāraknī biluṭfin\nminka yā Mawla l-mawālī\nYā karīma l-wajhi ghithnī\nqabla an yafnā ṣtibārī',
+        en:'So restore me with gentle grace from You\nO Master of all masters!\nO Most Generous One, save me\nbefore I exhaust my patience with myself'
+      },
+      {
+        ar:'يَا سَرِيعَ الْغَوْثِ غَوْثًا\nمِنْكَ يُدْرِكْنَا سَرِيعًا\nيَهْزِمُ الْعُسْرَ وَيَأْتِي\nبِالَّذِي أَرْجُو جَمِيعًا',
+        tl:'Yā sarīʿa l-ghawti ghawthān\nminka yudriknā sarīʿan\nYahzimu l-ʿusra wa yaʾtī\nbilladhī arjū jamīʿan',
+        en:'O Swift in granting aid!\nGrant me aid which reaches me swiftly\nvanquishing all difficulty\nand bringing all that I hope for'
+      },
+      {
+        ar:'يَا قَرِيبًا يَا مُجِيبًا\nيَا عَلِيمًا يَا سَمِيعًا\nقَدْ تَحَقَّقْتُ بِعَجْزِي\nوَخُضُوعِي وَانْكِسَارِي',
+        tl:'Yā qarīban yā mujīban\nyā ʿalīman yā samīʿan\nQad taḥaqqaqtu biʿajzī\nwa khuḍūʿī wankisārī',
+        en:'O Most Near! O Responder!\nO All-Knowing! O All-Hearing!\nI have realised my incapacity\nmy lowliness and utter brokenness'
+      },
+      {
+        ar:'لَمْ أَزَلْ بِالْبَابِ وَاقِفٌ\nفَارْحَمَنْ رَبِّي وُقُوفِي\nوَبِوَادِي الْفَضْلِ عَاكِفٌ\nفَأَدِمْ رَبِّي عُكُوفِي',
+        tl:'Lam azal bil-bābi wāqif\nfarḥaman Rabbī wuqūfī\nWa biwādī l-faḍli ʿākif\nfaʾadim Rabbī ʿukūfī',
+        en:'I remain standing at Your door\nso have mercy, my Lord, on my standing\nDevoting myself to the valley of grace\nmake my devotion everlasting, O Lord!'
+      },
+      {
+        ar:'وَلِحُسْنِ الظَّنِّ أُلَازِمُ\nفَهْوَ خِلِّي وَحَلِيفِي\nوَأَنِيسِي وَجَلِيسِي\nطُولَ لَيْلِي وَنَهَارِي',
+        tl:'Wa liḥusni ẓ-ẓanni ulāzimu\nfahwa khillī wa ḥalīfī\nWa anīsī wa jalīsī\nṭūla laylī wa nahārī',
+        en:'Good opinion of my Lord I hold fast to\nfor He is my close friend and ally\nmy intimate companion\nwho sits with me throughout day and night'
+      },
+      {
+        ar:'حَاجَةً فِي النَّفْسِ يَا رَبْ\nفَاقْضِهَا يَا خَيْرَ قَاضِي\nوَأَرِحْ سِرِّي وَقَلْبِي\nمِنْ لَظَاهَا وَالشُّوَاظِ',
+        tl:'Ḥājatan fī n-nafsi yā Rab\nfaqḍihā yā khayra qāḍī\nWa ariḥ sirrī wa qalbī\nmin laẓāhā wash-shuwāẓ',
+        en:'The need within my soul, O Lord\nfulfil it, O Best of those who fulfil!\nEase my inner self and my heart\nfrom the burning fire within them'
+      },
+      {
+        ar:'فِي سُرُورٍ وَحُبُورٍ\nوَإِذَا مَا كُنْتَ رَاضِي\nفَالْهَنَا وَالْبَسْطُ حَالِي\nوَشِعَارِي وَدِثَارِي',
+        tl:'Fī surūrin wa ḥubūrin\nwa idhā mā kunta rāḍī\nFal-hanā wal-basṭu ḥālī\nwa shiʿārī wa dithārī',
+        en:'If You are pleased with me\nin happiness and in joy —\nthen bliss and expansion are my state\nmy banner and my covering'
+      }
+    ]
+  }
+};
+
+let arSz=26, enSz=15;
+
+function open_nasheed(k){
+  const n=N[k];
+  document.getElementById('rtitle').textContent=n.titleEn;
+  let h=`<div class="nhead">
+    <span class="nhead-ar">${n.titleAr}</span>
+    <span class="nhead-en">${n.titleEn}</span>
+    <div class="ninfo">${n.info}</div>
+  </div>`;
+
+  if(n.chorus){
+    h+=`<div class="chorus">
+      <div class="clabel">◆ Chorus (repeated) ◆</div>
+      <div class="c-ar">${n.chorus.ar.replace(/\n/g,'<br>')}</div>
+      <div class="c-tl">${n.chorus.tl.replace(/\n/g,'<br>')}</div>
+      <div class="c-en">${n.chorus.en.replace(/\n/g,'<br>')}</div>
+    </div>`;
+  }
+
+  n.verses.forEach((v,i)=>{
+    h+=`<div class="vb">
+      <div class="vnum">VERSE ${i+1}</div>
+      <div class="v-ar" style="font-size:${arSz}px">${v.ar.replace(/\n/g,'<br>')}</div>
+      <div class="v-tl" style="font-size:${enSz-1}px">${v.tl.replace(/\n/g,'<br>')}</div>
+      <div class="v-en" style="font-size:${enSz}px">${v.en.replace(/\n/g,'<br>')}</div>
+    </div>`;
+  });
+
+  document.getElementById('vbox').innerHTML=h;
+  document.getElementById('rcont').scrollTop=0;
+  document.getElementById('pfill').style.width='0%';
+  document.getElementById('home').classList.add('gone');
+  document.getElementById('read').classList.remove('gone');
+}
+
+function go_home(){
+  document.getElementById('read').classList.add('gone');
+  document.getElementById('home').classList.remove('gone');
+}
+function chsz(d){
+  arSz=Math.min(44,Math.max(18,arSz+d));
+  enSz=Math.min(26,Math.max(11,enSz+d));
+  document.querySelectorAll('.v-ar').forEach(e=>e.style.fontSize=arSz+'px');
+  document.querySelectorAll('.v-tl').forEach(e=>e.style.fontSize=(enSz-1)+'px');
+  document.querySelectorAll('.v-en').forEach(e=>e.style.fontSize=enSz+'px');
+}
+function upd(){
+  const el=document.getElementById('rcont');
+  const p=el.scrollHeight>el.clientHeight?(el.scrollTop/(el.scrollHeight-el.clientHeight))*100:100;
+  document.getElementById('pfill').style.width=p+'%';
+}
+function toggle_night(){document.getElementById('read').classList.toggle('night')}
+</script>
+</body>
+</html>
