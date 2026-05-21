@@ -420,3 +420,13 @@
   #reader.night .en{
     color:#a99a7d;
   }
+
+  .hidden {
+    display: none !important;
+}
+
+/* Valfritt: Stil för knappar som är aktiva */
+.ctrl.active {
+    background: rgba(201, 168, 76, 0.3);
+    border: 1px solid var(--gold);
+}
