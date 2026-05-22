@@ -12,7 +12,6 @@ import salawatunTayyibatun from './nasheed/salawatun-tayyibatun.js';
 import talamaAshkuGharami from './nasheed/talama-ashku-gharami.js';
 import yaImamaRusli from './nasheed/ya-imama-rusli.js';
 import salatAlBadariyyah from './nasheed/salat-al-badariyyah.js';
-import burdaDua from './nasheed/burda-dua.js';
 import sallallahuAlaMuhammad from './nasheed/sallalahu-ala-muhammad.js';
 import antaFina from './nasheed/anta-fina.js';
 import qasidaMuhammadiya from './nasheed/muhammadiya.js';
