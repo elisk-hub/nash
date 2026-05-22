@@ -1,9 +1,0 @@
-/*
-  X-Content-Type-Options: nosniff
-  X-Frame-Options: DENY
-  Referrer-Policy: strict-origin-when-cross-origin
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;
-
-# Cache-optimering för dina fonter (sparar i 24 timmar)
-/js/fonts/*
-  Cache-Control: public, max-age=86400, must-revalidate
