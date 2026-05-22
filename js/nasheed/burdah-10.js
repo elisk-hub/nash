@@ -1,7 +1,7 @@
 const burdaDua = {
     id: "burda-dua",
-    titleAr: "الفصل العاشر: في المناجاة وعرض الحوائج",
-    titleEn: "Burda: Chapter 10 (Supplication)",
+    titleAr: "البردة: الفصل العاشر",
+    titleEn: "Burda: Chapter 10 ",
     shortTitle: "Burda Chapter 10",
     info: "Det sista kapitlet av Qasida al-Burda, som innehåller innerlig bön (Munajat) och vädjan om Guds hjälp genom Profetens ﷺ ära.",
     verses: [
