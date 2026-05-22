@@ -1,3 +1,32 @@
+
+@font-face {
+    font-family: 'Amiri';
+    src: url('js/fonts/amiri-v30-arabic_latin-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Amiri';
+    src: url('js/fonts/amiri-v30-arabic_latin-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Scheherazade New';
+    src: url('js/fonts/scheherazade-new-v21-arabic_latin-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Scheherazade New';
+    src: url('js/fonts/scheherazade-new-v21-arabic_latin-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
 *{
     margin:0;
     padding:0;
@@ -26,8 +55,6 @@
     background:var(--green-dark);
   }
   
-  /* BACKGROUND */
-  
   body::before{
     content:'';
   
@@ -46,7 +73,6 @@
     pointer-events:none;
   }
   
-  /* HOME */
   
   #home{
     position:fixed;
@@ -361,8 +387,6 @@
     color:var(--gold);
   }
   
-  /* Arabic */
-  
   .ar{
     font-family:'Scheherazade New',serif;
   
@@ -378,8 +402,6 @@
   
     font-size:30px;
   }
-  
-  /* Transliteration */
   
   .tl{
     background:rgba(74,138,90,.08);
@@ -398,8 +420,6 @@
   
     font-size:16px;
   }
-  
-  /* English */
   
   .en{
     color:var(--text);
@@ -447,7 +467,6 @@
     display: none !important;
 }
 
-/* Valfritt: Stil för knappar som är aktiva */
 .ctrl.active {
     background: rgba(201, 168, 76, 0.3);
     border: 1px solid var(--gold);

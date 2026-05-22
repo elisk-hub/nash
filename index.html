@@ -4,17 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>Nasheed</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
-  
-  <!-- Länka till din CSS-fil -->
+  <link rel="preload" href="js/fonts/amiri-v30-arabic_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="js/fonts/scheherazade-new-v21-arabic_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-
-  <!-- HOME SCREEN -->
   <div id="home">
     <div class="header">
       <div class="title">Nasheed</div>
@@ -22,7 +17,6 @@
     <div class="list" id="nasheedList"></div>
   </div>
 
-  <!-- READER SCREEN -->
   <div id="reader">
     <div class="topbar">
       <button class="back" onclick="goBack()"><!-- Symbolen för bakåt -->← Tillbaka</button>
@@ -31,15 +25,12 @@
         <button class="ctrl" onclick="toggleNight()">☾</button>
         <button class="ctrl" onclick="changeSize(-2)">A−</button>
         <button class="ctrl" onclick="changeSize(2)">A+</button>
-        
         <button class="ctrl" id="toggle-tl">TL</button>
         <button class="ctrl" id="toggle-en">EN</button>
     </div>
     </div>
     <div class="content" id="content"></div>
   </div>
-
-  <!-- VIKTIGT: type="module" krävs för att kunna använda import/export -->
   <script type="module" src="js/app.js"></script>
 </body>
 </html>
