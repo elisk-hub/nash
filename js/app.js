@@ -12,8 +12,12 @@ import salawatunTayyibatun from './nasheed/salawatun-tayyibatun.js';
 import talamaAshkuGharami from './nasheed/talama-ashku-gharami.js';
 import yaImamaRusli from './nasheed/ya-imama-rusli.js';
 import salatAlBadariyyah from './nasheed/salat-al-badariyyah.js';
+import burdaDua from './nasheed/burda-dua.js';
+import sallallahuAlaMuhammad from './nasheed/sallalahu-ala-muhammad.js';
+import antaFina from './nasheed/anta-fina.js';
+import qasidaMuhammadiya from './nasheed/muhammadiya.js';
 
-const nasheedData = [asmaAlHusnaKiraya, assalamuAleyk, bushraLana, innaFilJannati, mahbubiBilWisal, qadKafani, qamarun, salamAlaQabrin, salatAlBadariyyah, salawatunTayyibatun, talaAlBadru, talamaAshkuGharami, yaImamaRusli];
+const nasheedData = [antaFina, asmaAlHusnaKiraya, assalamuAleyk, bushraLana, innaFilJannati, mahbubiBilWisal, qasidaMuhammadiya, qadKafani, qamarun, salamAlaQabrin, salatAlBadariyyah, salawatunTayyibatun, sallallahuAlaMuhammad,talaAlBadru, talamaAshkuGharami, yaImamaRusli];
 
 let arabicSize = 30;
 let textSize = 16;
