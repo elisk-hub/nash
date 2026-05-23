@@ -1,30 +1,28 @@
-// Importera alla nasheeds
-import talaAlBadru from './nasheed/tala-al-badru.js';
-import qadKafani from './nasheed/qad-kafani.js';
-import assalamuAleyk from './nasheed/assalamu-aleyk.js';
-import salamAlaQabrin from './nasheed/salamun-ala-qabrin.js';
-import qamarun from './nasheed/qamarun.js';
-import innaFilJannati from './nasheed/inna-fil-jannati.js';
+import antaFina from './nasheed/anta-fina.js';
 import asmaAlHusnaKiraya from './nasheed/asma-al-husna-kiraya.js';
+import assalamuAleyk from './nasheed/assalamu-aleyk.js';
+import burdaDua from './nasheed/burdah-10.js';
 import bushraLana from './nasheed/bushra-lana.js';
+import innaFilJannati from './nasheed/inna-fil-jannati.js';
 import mahbubiBilWisal from './nasheed/mahbubi-bil-wisal.js';
+import qasidaMuhammadiya from './nasheed/muhammadiya.js';
+import qadKafani from './nasheed/qad-kafani.js';
+import qamarun from './nasheed/qamarun.js';
+import salamAlaQabrin from './nasheed/salamun-ala-qabrin.js';
+import salatAlBadariyyah from './nasheed/salat-al-badariyyah.js';
 import salawatunTayyibatun from './nasheed/salawatun-tayyibatun.js';
+import sallallahuAlaMuhammad from './nasheed/sallalahu-ala-muhammad.js';
+import talaAlBadru from './nasheed/tala-al-badru.js';
 import talamaAshkuGharami from './nasheed/talama-ashku-gharami.js';
 import yaImamaRusli from './nasheed/ya-imama-rusli.js';
-import salatAlBadariyyah from './nasheed/salat-al-badariyyah.js';
-import sallallahuAlaMuhammad from './nasheed/sallalahu-ala-muhammad.js';
-import antaFina from './nasheed/anta-fina.js';
-import qasidaMuhammadiya from './nasheed/muhammadiya.js';
-import burdaDua from './nasheed/burdah-10.js';
 
-const nasheedData = [antaFina, asmaAlHusnaKiraya, assalamuAleyk, burdaDua, bushraLana, innaFilJannati, mahbubiBilWisal, qasidaMuhammadiya, qadKafani, qamarun, salamAlaQabrin, salatAlBadariyyah, salawatunTayyibatun, sallallahuAlaMuhammad,talaAlBadru, talamaAshkuGharami, yaImamaRusli];
+const nasheedData = [antaFina, asmaAlHusnaKiraya, assalamuAleyk, burdaDua, bushraLana, innaFilJannati, mahbubiBilWisal, qasidaMuhammadiya, qadKafani, qamarun, salamAlaQabrin, salatAlBadariyyah, salawatunTayyibatun, sallallahuAlaMuhammad, talaAlBadru, talamaAshkuGharami, yaImamaRusli];
 
 let arabicSize = 30;
 let textSize = 16;
 let state = { tl: true, en: true };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Koppla knappar här istället för onclick i HTML
     document.getElementById('toggle-tl').addEventListener('click', () => toggleVisibility('tl'));
     document.getElementById('toggle-en').addEventListener('click', () => toggleVisibility('en'));
     initApp();
@@ -32,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initApp() {
     const listContainer = document.getElementById('nasheedList');
-    if (!listContainer) return;
     listContainer.innerHTML = '';
     nasheedData.forEach((nasheed, index) => {
         const card = document.createElement('div');
@@ -57,11 +54,26 @@ function openReader(index) {
                 ${item.en ? `<div class="en ${state.en ? '' : 'hidden'}">${item.en}</div>` : ''}
             </div>`;
     });
+    
     document.getElementById('content').innerHTML = contentHtml;
     applySizes();
     updateButtonStyles();
     document.getElementById('reader').classList.add('show');
+    
+    // Historik-logik
+    window.history.pushState({ page: 'reader' }, 'Nasheed', '#reader');
 }
+
+window.onpopstate = () => {
+    document.getElementById('reader').classList.remove('show');
+};
+
+window.goBack = () => {
+    window.history.back();
+};
+
+window.toggleNight = () => document.getElementById('reader').classList.toggle('night');
+window.changeSize = (change) => { arabicSize += change; textSize += change * 0.5; applySizes(); };
 
 function toggleVisibility(type) {
     state[type] = !state[type];
@@ -73,11 +85,6 @@ function updateButtonStyles() {
     document.getElementById('toggle-tl').classList.toggle('active', state.tl);
     document.getElementById('toggle-en').classList.toggle('active', state.en);
 }
-
-// Globala helpers
-window.goBack = () => document.getElementById('reader').classList.remove('show');
-window.toggleNight = () => document.getElementById('reader').classList.toggle('night');
-window.changeSize = (change) => { arabicSize += change; textSize += change * 0.5; applySizes(); };
 
 function applySizes() {
     document.querySelectorAll('.ar').forEach(el => el.style.fontSize = arabicSize + 'px');

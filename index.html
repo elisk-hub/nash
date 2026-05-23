@@ -4,22 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>Nasheed</title>
-  <link rel="preload" href="js/fonts/amiri-v30-arabic_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="js/fonts/scheherazade-new-v21-arabic_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <div id="home">
-    <div class="header">
-      <div class="title">Nasheed</div>
-    </div>
+    <div class="header"><div class="title">Nasheed</div></div>
     <div class="list" id="nasheedList"></div>
   </div>
 
   <div id="reader">
     <div class="topbar">
-      <button class="back" onclick="goBack()"><!-- Symbolen för bakåt -->← Tillbaka</button>
+      <button class="back" onclick="goBack()">← Tillbaka</button>
       <div class="reader-title" id="readerTitle">Nasheed</div>
       <div class="controls">
         <button class="ctrl" onclick="toggleNight()">☾</button>
@@ -27,10 +23,11 @@
         <button class="ctrl" onclick="changeSize(2)">A+</button>
         <button class="ctrl" id="toggle-tl">TL</button>
         <button class="ctrl" id="toggle-en">EN</button>
-    </div>
+      </div>
     </div>
     <div class="content" id="content"></div>
   </div>
+
   <script type="module" src="js/app.js"></script>
 </body>
 </html>
