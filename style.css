@@ -471,10 +471,3 @@
     background: rgba(201, 168, 76, 0.3);
     border: 1px solid var(--gold);
 }
-
-#reader {
-    display: none;
-}
-#reader.show {
-    display: block;
-}
